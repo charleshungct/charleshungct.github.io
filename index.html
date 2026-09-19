@@ -136,6 +136,98 @@
   .card .thumb{aspect-ratio:16/10; overflow:hidden}
   .card .thumb .ph{width:100%; height:100%; border:0; border-bottom:1px dashed var(--border)}
   .card .thumb img{width:100%; height:100%; object-fit:cover}
+  /* ---- project image carousel ---- */
+
+.carousel{
+  position:relative;
+  overflow:hidden;
+}
+
+.carousel-track{
+  display:flex;
+  width:100%;
+  height:100%;
+  transition:transform .35s ease;
+}
+
+.carousel-track img{
+  width:100%;
+  height:100%;
+  flex:0 0 100%;
+  object-fit:cover;
+}
+
+.carousel-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:2;
+
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.35);
+
+  background:rgba(0,0,0,.45);
+  color:white;
+
+  font-size:1.5rem;
+  line-height:1;
+  cursor:pointer;
+
+  display:grid;
+  place-items:center;
+
+  opacity:0;
+  transition:opacity .2s ease, background .2s ease;
+}
+
+.carousel:hover .carousel-btn{
+  opacity:1;
+}
+
+.carousel-btn:hover{
+  background:rgba(0,0,0,.7);
+}
+
+.carousel-btn.prev{
+  left:10px;
+}
+
+.carousel-btn.next{
+  right:10px;
+}
+
+.carousel-dots{
+  position:absolute;
+  left:50%;
+  bottom:10px;
+  transform:translateX(-50%);
+
+  display:flex;
+  gap:6px;
+  z-index:2;
+}
+
+.carousel-dot{
+  width:7px;
+  height:7px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.55);
+  cursor:pointer;
+}
+
+.carousel-dot.active{
+  background:white;
+}
+
+@media (hover:none){
+  .carousel-btn{
+    opacity:1;
+  }
+}
   .card-body{padding:18px 20px 20px; display:flex; flex-direction:column; gap:10px; flex:1}
   .card h3{font-size:1.08rem; font-weight:600}
   .tags{display:flex; flex-wrap:wrap; gap:6px}
@@ -372,7 +464,7 @@
 
       <div class="grid">
 
-        <article class="card" data-tags="underwater mechanical">
+        <!-- <article class="card" data-tags="underwater mechanical">
           <div class="thumb"><div class="ph" data-label="CAD render or section view of the vehicle"></div></div>
           <div class="card-body">
             <h3>Modular swarm AUV — ICAUV</h3>
@@ -380,59 +472,155 @@
             <p>A modular, inline AUV for seabed mapping, designed so modules can be added or swapped without touching the pressure housing. A continuous four-rod external spine carries all loads; printed modules clamp onto it with split clamps, and the acrylic canister sits in rubber-lined saddles with radial O-ring endcaps — it's never a structural member. An electronics sled on one endcap gives routine access without pulling the canister. Target depth 10–50 m.</p>
             <div class="card-links"><a href="https://github.com/ORG" target="_blank" rel="noopener">GitHub ↗</a><a href="#"><mark class="todo">Design notes ↗</mark></a></div>
           </div>
-        </article>
+        </article> -->
 
         <article class="card" data-tags="underwater software">
-          <div class="thumb"><div class="ph" data-label="Photo of the vehicle / pool test"></div></div>
+          <div class="thumb carousel">
+            <div class="carousel-track">
+              <img src="Assets/AUV1_render.jpeg" alt="AUV image 1">
+              <img src="Assets/IMG_3333.jpeg" alt="AUV image 2">
+              <img src="Assets/IMG_3363.jpeg" alt="AUV image 3">
+              <img src="Assets/IMG_3238.PNG" alt="AUV image 4">
+              <img src="Assets/IMG_3202.jpeg" alt="AUV image 5">
+            </div>
+            <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
+            <div class="carousel-dots"></div>
+          </div>
+          
           <div class="card-body">
             <h3>Personal AUV build</h3>
             <div class="tags"><span class="tag">Underwater robotics</span><span class="tag">Software</span></div>
-            <p>A from-scratch AUV built over summer 2026 to learn the whole stack: mechanical fabrication, electronics, control and software, with a Ping360 imaging sonar planned. <mark class="todo">Add: hull and thruster layout, compute and sensors, the controller (depth / heading PID?), and what's working in the water.</mark></p>
-            <div class="card-links"><a href="https://github.com/USERNAME/REPO" target="_blank" rel="noopener">GitHub ↗</a><a href="#"><mark class="todo">Build log ↗</mark></a></div>
+            <p>A from-scratch AUV built over summer 2026 to learn the whole stack: mechanical fabrication, electronics, control and software. The 5 DoF free flooded AUV is controlled by a RPi5 and Pixhawk (ArduPilot) stack, and powered by 4S Li-ion battery pack. Currently tethered and will act as the first prototype for the newly founded Imperial College AUV Society.</p>
+            <!-- <div class="card-links"><a href="https://github.com/USERNAME/REPO" target="_blank" rel="noopener">GitHub ↗</a><a href="#"><mark class="todo">Build log ↗</mark></a></div> -->
           </div>
         </article>
 
         <article class="card" data-tags="underwater mechanical">
-          <div class="thumb"><div class="ph" data-label="ROV in the water or at the competition"></div></div>
+          <div class="thumb carousel">
+            <div class="carousel-track">
+              <img src="Assets/Screenshot 2026-09-19 020332.png" alt="FL image 1">
+              <img src="Assets/IMG_9756.JPG" alt="FL image 2">
+              <img src="Assets/IMG_0243.JPG" alt="FL image 3">
+              <img src="Assets/Screenshot 2026-09-19 020348.png" alt="FL image 4">
+            </div>
+            <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
+            <div class="carousel-dots"></div>
+          </div>
+
           <div class="card-body">
-            <h3>Fish Logic ROV — 2nd, MATE ROV World Championship</h3>
+            <h3>Fish Logic ROV — Siren</h3>
             <div class="tags"><span class="tag">Underwater robotics</span><span class="tag">Mechanical design</span></div>
-            <p><mark class="todo">What the ROV had to do (the mission tasks), what you designed as Chief Mechanical Engineer, and the result — 2nd worldwide in [class], [year].</mark></p>
-            <div class="card-links"><a href="#"><mark class="todo">Technical report ↗</mark></a><a href="#"><mark class="todo">Video ↗</mark></a></div>
-          </div>
-        </article>
-
-        <article class="card" data-tags="propulsion">
-          <div class="thumb"><div class="ph" data-label="Thruster firing / test rig photo"></div></div>
-          <div class="card-body">
-            <h3>Ion thruster</h3>
-            <div class="tags"><span class="tag">Propulsion</span></div>
-            <p><mark class="todo">Type (gridded electrostatic / ionic-wind?), what you built and how you measured it — operating voltage, thrust or ion current, and the headline result.</mark></p>
-            <div class="card-links"><a href="#"><mark class="todo">Write-up ↗</mark></a></div>
-          </div>
-        </article>
-
-        <article class="card" data-tags="propulsion mechanical">
-          <div class="thumb"><div class="ph" data-label="Injector CAD / CFD plot"></div></div>
-          <div class="card-body">
-            <h3>Liquid rocket engine injector</h3>
-            <div class="tags"><span class="tag">Propulsion</span><span class="tag">Mechanical design</span></div>
-            <p><mark class="todo">Injector type (pintle / impinging?), propellants, how you designed it (CFD, spray analysis, hand calcs), and what you produced — drawings, a prototype, a test.</mark></p>
-            <div class="card-links"><a href="#"><mark class="todo">Report ↗</mark></a></div>
+            <p>A 5 DoF modular ROV with rails for hotswapping tools for mission tasks in the MATE ROV Competition. This includes object manipulation (Gripper, EM, Hook, Cage), maneuvering, data collection, and photogrammetry missions. I focused on the mechanical integration, compliance, and manufacture. Additionally, I worked on the servo gripper.</p>
+            <div class="card-links"><a href="MacauAnglicanCollege_FishLogic_technical documentation_2023.pdf" target="_blank" rel="noopener">Technical report ↗</a></div>
           </div>
         </article>
 
         <article class="card" data-tags="mechanical">
-          <div class="thumb"><div class="ph" data-label="Component render / FEA plot"></div></div>
+          <div class="thumb carousel">
+            <div class="carousel-track">
+              <img src="Assets/unnamed (1).jpg" alt="FS image 1">
+              <img src="Assets/1b13bd60-4068-4fe5-9fd3-e9bd0551aa44.JPG" alt="FS image 2">
+              <img src="Assets/d438badf-9e79-45dd-bda4-5e689c958ade.JPG" alt="FS image 3">
+              <img src="Assets/08d7cd5c-161e-4045-97f2-182287813e21.jpeg" alt="FS image 4">
+              <img src="Assets/c1e0f12a-505c-4921-a8be-d3fdb5e7d59b.jpeg" alt="FS image 5">
+            </div>
+            <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
+            <div class="carousel-dots"></div>
+          </div>
+
           <div class="card-body">
-            <h3>Formula Student — <mark class="todo">component</mark></h3>
+            <h3>Formula Student — Shifter Module and Steering Jig</h3>
             <div class="tags"><span class="tag">Mechanical design</span></div>
-            <p><mark class="todo">The component, its load cases, the FEA you ran, the mass or stiffness result, and how it was manufactured.</mark></p>
-            <div class="card-links"><a href="#"><mark class="todo">Report ↗</mark></a></div>
+            <p>Designed and manufactured a shifter module actuated by a bicycle brake wire. Body components are manufactured in-house using waterjet cutter, mill, lathe, and press drill. The 3D printed jigs for the new steering system are designed to centreline the steering column and wheel during welding.</p>
+            <!-- <div class="card-links"><a href="#"><mark class="todo">Report ↗</mark></a></div> -->
           </div>
         </article>
 
-        <article class="card" data-tags="software">
+        <article class="card" data-tags="propulsion mechanical">
+          <div class="thumb carousel">
+            <div class="carousel-track">
+              <img src="Assets/Screenshot 2026-09-19 003057.png" alt="ICSS image 1">
+              <img src="Assets/Screenshot 2026-09-19 004358.png" alt="ICSS image 2">
+              <img src="Assets/Screenshot 2026-09-19 004619.png" alt="ICSS image 3">
+            </div>
+            <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
+            <div class="carousel-dots"></div>
+          </div>
+
+          <div class="card-body">
+            <h3>Liquid rocket engine injector</h3>
+            <div class="tags"><span class="tag">Propulsion</span><span class="tag">Mechanical design</span></div>
+            <p>Designed and analysed multiple rocket injector architectures, including unlike-impinging and pintle injectors, for a cryogenic LOx/IPA bipropellant engine (Currently in the design phase). Simple CFD is performed to analyse the spray pattern and impingment angle and distance.</p>
+            <!-- <div class="card-links"><a href="#"><mark class="todo">Report ↗</mark></a></div> -->
+          </div>
+        </article>
+
+        <article class="card" data-tags="propulsion">
+          <div class="thumb carousel">
+            <div class="carousel-track">
+              <img src="Assets/IMG_1983.jpeg" alt="ion thruster image 1">
+            </div>
+            <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
+            <div class="carousel-dots"></div>
+          </div>
+
+          <div class="card-body">
+            <h3>Ion thruster</h3>
+            <div class="tags"><span class="tag">Propulsion</span></div>
+            <p>After starting to work on rocket injectors, I gained interest in different types of propulsion. I decided to design an atmospheric ion thruster using the Biefeld-Effect. I first tested the idea using a thin strip of nickel as cathode and a thin copper nozzle as anode. I charged the metals with 400kV to ionise the air and produce thrust that could blow out a candle from 1 metre away. The future plan is to electroplate a 3D printed nozzle or use metal 3D printing to get a better nozzle and find an optimised layout for greater thrust.</p>
+            <!-- <div class="card-links"><a href="#"><mark class="todo">Write-up ↗</mark></a></div> -->
+          </div>
+        </article>
+
+        <article class="card" data-tags="mechanical">
+           <div class="thumb carousel">
+            <div class="carousel-track">
+              <img src="Assets/IMG_0167.jpeg" alt="DT image 1">
+              <img src="Assets/unnamed.jpg" alt="DT image 2">
+            </div>
+            <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
+            <div class="carousel-dots"></div>
+          </div>
+
+          <div class="card-body">
+            <h3>F24 Car Drivetrain</h3>
+            <div class="tags"><span class="tag">Mechanical design</span></div>
+            <p>The F24 Drivetrain Module is designed to transmit power from an electric motor to the rear axle. The entire drivetrain consists of three stages of a combination of spur gears and sprockts to achieve a gear ratio of 10. The gear and sprocket module/type, size, and material is chosen to fit the torque and speed needed to transfer. Safety factors for the gears are determined from AGMA bending and surface contact stresses. A stress analysis is performed on shaft to determine the dimension that align to standard pairings and a high safety factor. This project is completed over a span of 10 weeks. The design is drawn up and iterated by the team first by paper than by CAD. Parts for the prototype are purchased and manufactured in workshops.</p>
+            <div class="card-links"><a href="ME2 DMF P21 Autumn Design Report.pdf" target="_blank" rel="noopener">Technical report ↗</a></div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="mechanical">
+           <div class="thumb carousel">
+            <div class="carousel-track">
+              <img src="Assets/CAD Render 5.png" alt="DW image 1">
+              <img src="Assets/CAD Render 3.png" alt="DW image 2">
+              <img src="Assets/CAD Render 6.png" alt="DW image 3">
+              <img src="Assets/CAD Render 7.png" alt="DW image 4">
+              <img src="Assets/CAD Render 8.png" alt="DW image 5">
+              <img src="Assets/CAD Render 9.png" alt="DW image 6">
+              <img src="Assets/Exploded View.png" alt="DW image 7">
+            </div>
+            <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
+            <div class="carousel-dots"></div>
+          </div>
+          
+          <div class="card-body">
+            <h3>Tennis Ball Collector Concept</h3>
+            <div class="tags"><span class="tag">Mechanical design</span></div>
+            <p>A 5-day-sprint project to design and present a concept of a vacuum-powered tennis ball collector. I focused on the mechanical integration, placement, and materials of the product. The vehicle is separated into three distinct sections: Motion section, ball collecting module, top deck sensor module. The vehicle is to be made from an aluminium frame with ASA fairings. Powered by a hotswappable battery and collects the tennis ball using a suction cup.</p>
+            <div class="card-links"><a href="Group18-DesignWeek2026.pdf" target="_blank" rel="noopener">Presentation ↗</a><a href="GroupDW18-Poster-2026.pdf" target="_blank" rel="noopener">Poster ↗</a></div>
+          </div>
+        </article>
+
+        <!-- <article class="card" data-tags="software">
           <div class="thumb"><div class="ph" data-label="App screenshot (phone)"></div></div>
           <div class="card-body">
             <h3>Stock portfolio tracker (PWA)</h3>
@@ -440,7 +628,7 @@
             <p>A single-file React web app that replaces a TradingView watchlist: live quotes and news via the Finnhub API, holdings and watchlist with tap-through detail pages, transaction logging, and average-cost P&amp;L — persisted on-device and installable on the phone. Hosted on GitHub Pages.</p>
             <div class="card-links"><a href="https://github.com/USERNAME/REPO" target="_blank" rel="noopener">GitHub ↗</a><a href="#"><mark class="todo">Live ↗</mark></a></div>
           </div>
-        </article>
+        </article> -->
 
       </div>
     </div>
@@ -630,11 +818,93 @@
   // Project filters
   const filterButtons = document.querySelectorAll('.filter');
   const cards = document.querySelectorAll('.card');
+
   filterButtons.forEach(btn => btn.addEventListener('click', () => {
     filterButtons.forEach(b => b.classList.toggle('active', b === btn));
     const f = btn.dataset.filter;
-    cards.forEach(c => { c.hidden = f !== 'all' && !c.dataset.tags.split(' ').includes(f); });
+    cards.forEach(c => {
+      c.hidden = f !== 'all' && !c.dataset.tags.split(' ').includes(f);
+    });
   }));
+
+
+  // Project image carousels
+  document.querySelectorAll('.carousel').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const images = track.querySelectorAll('img');
+    const prevBtn = carousel.querySelector('.prev');
+    const nextBtn = carousel.querySelector('.next');
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+
+    let index = 0;
+
+    if (images.length <= 1) {
+      prevBtn.hidden = true;
+      nextBtn.hidden = true;
+      dotsContainer.hidden = true;
+      return;
+    }
+
+    images.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot';
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Go to image ${i + 1}`);
+
+      dot.addEventListener('click', () => {
+        index = i;
+        updateCarousel();
+      });
+
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    nextBtn.addEventListener('click', () => {
+      index = (index + 1) % images.length;
+      updateCarousel();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      index = (index - 1 + images.length) % images.length;
+      updateCarousel();
+    });
+
+
+    // Swipe support for phones/tablets
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carousel.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+
+      const swipeDistance = touchEndX - touchStartX;
+
+      if (Math.abs(swipeDistance) < 50) return;
+
+      if (swipeDistance < 0) {
+        index = (index + 1) % images.length;
+      } else {
+        index = (index - 1 + images.length) % images.length;
+      }
+
+      updateCarousel();
+    }, { passive: true });
+
+
+    updateCarousel();
+  });
 </script>
-</body>
-</html>

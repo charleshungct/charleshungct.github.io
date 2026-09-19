@@ -136,104 +136,105 @@
   .card .thumb{aspect-ratio:16/10; overflow:hidden}
   .card .thumb .ph{width:100%; height:100%; border:0; border-bottom:1px dashed var(--border)}
   .card .thumb img{width:100%; height:100%; object-fit:cover}
+
   /* ---- project image carousel ---- */
 
-.carousel{
-  position:relative;
-  overflow:hidden;
-}
+  .carousel{
+    position:relative;
+    overflow:hidden;
+  }
 
-.carousel-track{
-  display:flex;
-  width:100%;
-  height:100%;
-  transition:transform .35s ease;
-}
+  .carousel-track{
+    display:flex;
+    width:100%;
+    height:100%;
+    transition:transform .35s ease;
+  }
 
-.carousel-track img{
-  width:100%;
-  height:100%;
-  flex:0 0 100%;
-  object-fit:cover;
-}
+  .carousel-track img{
+    width:100%;
+    height:100%;
+    flex:0 0 100%;
+    object-fit:cover;
+  }
 
-.carousel-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:2;
-
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.35);
-
-  background:rgba(0,0,0,.45);
-  color:white;
-
-  font-size:1.5rem;
-  line-height:1;
-  cursor:pointer;
-
-  display:grid;
-  place-items:center;
-
-  opacity:0;
-  transition:opacity .2s ease, background .2s ease;
-}
-
-.carousel:hover .carousel-btn{
-  opacity:1;
-}
-
-.carousel-btn:hover{
-  background:rgba(0,0,0,.7);
-}
-
-.carousel-btn.prev{
-  left:10px;
-}
-
-.carousel-btn.next{
-  right:10px;
-}
-
-.carousel-dots{
-  position:absolute;
-  left:50%;
-  bottom:10px;
-  transform:translateX(-50%);
-
-  display:flex;
-  gap:6px;
-  z-index:2;
-}
-
-.carousel-dot{
-  width:7px;
-  height:7px;
-  padding:0;
-  border:0;
-  border-radius:50%;
-  background:rgba(255,255,255,.55);
-  cursor:pointer;
-}
-
-.carousel-dot.active{
-  background:white;
-}
-
-@media (hover:none){
   .carousel-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:2;
+
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.35);
+
+    background:rgba(0,0,0,.45);
+    color:white;
+
+    font-size:1.5rem;
+    line-height:1;
+    cursor:pointer;
+
+    display:grid;
+    place-items:center;
+
+    opacity:0;
+    transition:opacity .2s ease, background .2s ease;
+  }
+
+  .carousel:hover .carousel-btn{
     opacity:1;
   }
-}
-  .card-body{padding:18px 20px 20px; display:flex; flex-direction:column; gap:10px; flex:1}
-  .card h3{font-size:1.08rem; font-weight:600}
-  .tags{display:flex; flex-wrap:wrap; gap:6px}
-  .tag{font-size:.75rem; font-weight:600; letter-spacing:.02em; color:var(--accent-ink); background:var(--accent-soft); padding:3px 9px; border-radius:999px}
-  .card p{font-size:.95rem; color:var(--muted); margin:0; flex:1}
-  .card-links{display:flex; flex-wrap:wrap; gap:14px; font-size:.9rem; font-weight:500; padding-top:4px}
+
+  .carousel-btn:hover{
+    background:rgba(0,0,0,.7);
+  }
+
+  .carousel-btn.prev{
+    left:10px;
+  }
+
+  .carousel-btn.next{
+    right:10px;
+  }
+
+  .carousel-dots{
+    position:absolute;
+    left:50%;
+    bottom:10px;
+    transform:translateX(-50%);
+
+    display:flex;
+    gap:6px;
+    z-index:2;
+  }
+
+  .carousel-dot{
+    width:7px;
+    height:7px;
+    padding:0;
+    border:0;
+    border-radius:50%;
+    background:rgba(255,255,255,.55);
+    cursor:pointer;
+  }
+
+  .carousel-dot.active{
+    background:white;
+  }
+
+  @media (hover:none){
+    .carousel-btn{
+      opacity:1;
+    }
+  }
+    .card-body{padding:18px 20px 20px; display:flex; flex-direction:column; gap:10px; flex:1}
+    .card h3{font-size:1.08rem; font-weight:600}
+    .tags{display:flex; flex-wrap:wrap; gap:6px}
+    .tag{font-size:.75rem; font-weight:600; letter-spacing:.02em; color:var(--accent-ink); background:var(--accent-soft); padding:3px 9px; border-radius:999px}
+    .card p{font-size:.95rem; color:var(--muted); margin:0; flex:1}
+    .card-links{display:flex; flex-wrap:wrap; gap:14px; font-size:.9rem; font-weight:500; padding-top:4px}
 
   /* ---- skills ---- */
   .skills{display:grid; grid-template-columns:repeat(auto-fit, minmax(165px, 1fr)); gap:28px 24px}
@@ -255,6 +256,46 @@
   .acts li{margin:0; padding:14px 16px; background:var(--surface); border:1px solid var(--border); border-radius:12px; display:grid; gap:2px}
   .acts b{font-weight:600}
   .acts span{color:var(--muted); font-size:.95rem}
+  /* ---- activity photos ---- */
+
+  .activity-entry{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:14px;
+    align-items:stretch;
+    margin-bottom:14px;
+  }
+
+  /* Let the original text box fill the available space */
+  .activity-entry .acts{
+    max-width:none;
+    height:100%;
+  }
+
+  .activity-entry .acts li{
+    height:100%;
+    align-content:center;
+  }
+
+  /* Image carousel */
+  .activity-carousel{
+    position:relative;
+    overflow:hidden;
+    border-radius:12px;
+    min-width:0;
+    aspect-ratio:16 / 10;
+  }
+
+  .activity-carousel .carousel-track{
+    height:100%;
+  }
+
+  .activity-carousel .carousel-track img{
+    width:100%;
+    height:100%;
+    flex:0 0 100%;
+    object-fit:cover;
+  }
 
   /* ---- contact / footer ---- */
   .contact .prose{margin-bottom:22px}
@@ -284,7 +325,7 @@
 </head>
 <body>
 
-<div class="draft-note">Draft — <mark class="todo">highlighted text</mark> and striped boxes are placeholders. Delete this bar when you're done.</div>
+<!-- <div class="draft-note">Draft — <mark class="todo">highlighted text</mark> and striped boxes are placeholders. Delete this bar when you're done.</div> -->
 
 <header class="nav">
   <div class="wrap">
@@ -780,14 +821,104 @@
   <!-- ================= 06 LEADERSHIP & ACTIVITIES ================= -->
   <section class="section" id="activities">
     <div class="wrap">
-      <div class="section-head"><span class="num">06</span><h2>Leadership &amp; Activities</h2></div>
+
+      <div class="section-head">
+        <span class="num">06</span>
+        <h2>Leadership &amp; Activities</h2>
+      </div>
+
+
+      <!-- STUDENT COUNCIL -->
+      <div class="activity-entry">
+
+        <div class="activity-carousel carousel">
+          <div class="carousel-track">
+            <img src="Assets/IMG_3380.jpg" alt="Stuco 1">
+            <img src="Assets/IMG_3373.jpg" alt="Stuco 2">
+            <img src="Assets/DE971FF9-1B7E-4F68-8912-8CB8F73AB520.JPG" alt="Stuco 4">
+          </div>
+
+          <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
+          <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
+
+          <div class="carousel-dots"></div>
+        </div>
+
+        <ul class="acts">
+          <li>
+            <b>Student Council Treasurer</b>
+            <span>
+              Elected treasurer responsible for managing budgets and donations for student-led events, fundraisers, competitions, balls, and volunteering initiatives. Raised over USD $4,000 for humanitarian relief efforts in Türkiye. Established formal Student Council communication channels, management, and cohort transition process.
+            </span>
+          </li>
+        </ul>
+
+      </div>
+
+
+    <!-- WORK SHADOWING -->
+    <div class="activity-entry">
+
+      <div class="activity-carousel carousel">
+        <div class="carousel-track">
+          <img src="Assets/7286.JPG" alt="WS 1">
+          <img src="Assets/7288.jpg" alt="WS 2">
+          <img src="Assets/7282.JPG" alt="WS 3">
+          <img src="Assets/7291.JPG" alt="WS 4">
+          <img src="Assets/IMG_1801.jpeg" alt="WS 5">
+          <img src="Assets/IMG_1796.jpeg" alt="WS 6">
+        </div>
+
+        <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
+        <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
+
+        <div class="carousel-dots"></div>
+      </div>
+
       <ul class="acts">
-        <li><b>Student Council Treasurer</b><span>Elected treasurer responsible for managing budgets and donations for student-led events, fundraisers, competitions, balls, and volunteering initiatives. Raised over USD $4,000 for humanitarian relief efforts in Türkiye</span></li>
-        <li><b>Work Shadowing</b><span>Followed an expert team to Japan and China, holding meetings with Sumitomo Corp, Rakuten, LiBiao Robotics, and AgiBot, discussing over logistics, supplies, and short/long term business strategies.</span></li>
-        <li><b>Volunteering</b><span>Participated in large scale cleanups after natural disaster in Macau as well as smaller scale beach cleanups. Enjoyed every moment.</span></li>
+        <li>
+          <b>Work Shadowing</b>
+          <span>
+            Followed an expert team to Japan and China, holding meetings with
+            Sumitomo Corp, Rakuten, LiBiao Robotics, and AgiBot, discussing
+            over logistics, supplies, and short/long term business strategies.
+          </span>
+        </li>
       </ul>
+
     </div>
-  </section>
+
+
+    <!-- VOLUNTEERING -->
+    <div class="activity-entry">
+
+      <div class="activity-carousel carousel">
+        <div class="carousel-track">
+          <img src="Assets/IMG_3371.webp" alt="VOL 1">
+          <img src="Assets/IMG_3372.webp" alt="VOL 2">
+        </div>
+
+        <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
+        <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
+
+        <div class="carousel-dots"></div>
+      </div>
+
+      <ul class="acts">
+        <li>
+          <b>Volunteering</b>
+          <span>
+            Participated in large scale cleanups after natural disaster in
+            Macau as well as smaller scale beach cleanups. Enjoyed every moment.
+          </span>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+</section>
+
 
   <!-- ================= 07 CONTACT ================= -->
   <section class="section contact" id="contact">
